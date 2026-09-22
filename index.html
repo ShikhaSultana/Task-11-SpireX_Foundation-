@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Real-time weather application — search any city or use your current location to see temperature, humidity, conditions and rain probability." />
+  <title>Weather Now — Real-Time Forecast</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Animated backdrop -->
+  <div class="sky" aria-hidden="true">
+    <span class="orb a"></span>
+    <span class="orb b"></span>
+    <span class="orb c"></span>
+  </div>
+
+  <main class="app">
+    <!-- Header -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">⛅</div>
+        <div>
+          <h1>Weather Now</h1>
+          <p>Real-time conditions &amp; rain forecast</p>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" role="switch"
+              aria-checked="false" aria-label="Toggle dark mode">
+        <span class="knob" id="themeKnob" aria-hidden="true">☀️</span>
+      </button>
+    </header>
+
+    <!-- Search -->
+    <div class="search-wrap">
+      <div class="search-bar">
+        <span class="ico" aria-hidden="true">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search a city… e.g. London"
+               autocomplete="off" aria-label="Search for a city"
+               aria-autocomplete="list" aria-controls="suggestions" />
+        <button class="btn btn-primary" id="searchBtn" type="button">Search</button>
+        <button class="btn btn-loc" id="locBtn" type="button" title="Use my current location">
+          <span aria-hidden="true">📍</span> My Location
+        </button>
+      </div>
+      <ul class="suggestions" id="suggestions" role="listbox" aria-label="City suggestions"></ul>
+    </div>
+
+    <!-- Quick chips -->
+    <div class="chips" id="chips" aria-label="Popular cities"></div>
+
+    <!-- Result -->
+    <section class="result" id="result" aria-live="polite"></section>
+
+    <footer class="foot">
+      Live data from <a href="https://open-meteo.com" target="_blank" rel="noopener">Open-Meteo</a>
+      · Reverse geocoding by BigDataCloud
+    </footer>
+  </main>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
